@@ -11,26 +11,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.springframework.data.neo4j.core.schema.Relationship.Direction.INCOMING;
-import static org.springframework.data.neo4j.core.schema.Relationship.Direction.OUTGOING;
 
 @Node
 @Data
 @FieldDefaults(level= AccessLevel.PRIVATE, makeFinal = true)
-public class School {
+public class Salary {
 
     @Id
     int id;
-    String name;
-    String address;
-    String type;
+    char level;
+    long amount;
 
-
-    @Relationship(type = "PAYS", direction = OUTGOING)
-    private Set<Salary> salaries  = new HashSet<>();
-    @Relationship(type = "WORKS_FOR", direction = INCOMING)
-    private Set<Teacher> teachingStaff  = new HashSet<>();
-    @Relationship(type = "ADMINISTERS", direction = OUTGOING)
-    private Set<Department> departments = new HashSet<>();
-
-
+    @Relationship(type = "RECEIVES", direction = INCOMING)
+    private Set<Teacher> teacherSalaries  = new HashSet<>();
+    @Relationship(type = "PAYS", direction = INCOMING)
+    private Set<School> salaries  = new HashSet<>();
 }

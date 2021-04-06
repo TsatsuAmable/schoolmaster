@@ -15,8 +15,7 @@ import static org.springframework.data.neo4j.core.schema.Relationship.Direction.
 
 @Node
 @Data
-@FieldDefaults(level = AccessLevel.PRIVATE)
-@RequiredArgsConstructor
+@FieldDefaults(level= AccessLevel.PRIVATE, makeFinal = true)
 public class Teacher {
 
     @Id
@@ -24,6 +23,8 @@ public class Teacher {
     String fullName;
 
 
+    @Relationship(type = "RECEIVES", direction = OUTGOING)
+    private Set<Salary> teacherSalaries  = new HashSet<>();
     @Relationship(type = "RUNS", direction = OUTGOING)
     private Set<Class> classTeacher  = new HashSet<>();
     @Relationship(type = "WORKS_FOR", direction = OUTGOING)
