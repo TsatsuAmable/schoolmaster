@@ -1,31 +1,23 @@
 package com.locode.apps.schoolmaster.domains;
 
-import lombok.AccessLevel;
+import com.locode.apps.schoolmaster.model.BaseEntity;
+import com.locode.apps.schoolmaster.student.Student;
 import lombok.Data;
-import lombok.experimental.FieldDefaults;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Relationship;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.*;
+import java.util.*;
 
-import static org.springframework.data.neo4j.core.schema.Relationship.Direction.OUTGOING;
-
-@Node
 @Data
-@FieldDefaults(level= AccessLevel.PRIVATE, makeFinal = true)
-public class Bill {
+@Entity
+@Table(name = "bills")
+public class Bill extends BaseEntity {
 
-    @Id
-    int id;
-    long amount;
+    long totalAmount;
     Date billDate;
-    String billPeriod;
+    Date fromDate;
+    Date toDate;
 
-    @Relationship(type = "BILL_FOR", direction = OUTGOING)
-    private Set<Student> billItems = new HashSet<>();
-    @Relationship(type = "GENERATES_BILL", direction = OUTGOING)
-    private Set<Department> departmentBills = new HashSet<>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<Student> billItems = new ArrayList<>();
+
 }

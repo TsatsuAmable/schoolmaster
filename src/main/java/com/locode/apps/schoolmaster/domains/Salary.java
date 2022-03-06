@@ -1,29 +1,25 @@
 package com.locode.apps.schoolmaster.domains;
 
-import lombok.AccessLevel;
+import com.locode.apps.schoolmaster.model.BaseEntity;
+import com.locode.apps.schoolmaster.teacher.Teacher;
 import lombok.Data;
-import lombok.experimental.FieldDefaults;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Relationship;
+import org.joda.money.Money;
 
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import static org.springframework.data.neo4j.core.schema.Relationship.Direction.INCOMING;
-
-@Node
 @Data
-@FieldDefaults(level= AccessLevel.PRIVATE, makeFinal = true)
-public class Salary {
+@Entity
+@Table(name = "salaries")
+public class Salary extends BaseEntity {
 
-    @Id
-    int id;
-    char level;
-    long amount;
+    String level;
+    Money amount;
 
-    @Relationship(type = "RECEIVES", direction = INCOMING)
-    private Set<Teacher> teacherSalaries  = new HashSet<>();
-    @Relationship(type = "PAYS", direction = INCOMING)
-    private Set<School> salaries  = new HashSet<>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<Teacher> teacherSalaries  = new ArrayList<>();
+//
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<School> salaries  = new ArrayList<>();
 }

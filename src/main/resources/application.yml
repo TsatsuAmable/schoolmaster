@@ -1,21 +1,31 @@
-server:
-  port: 8000
+# database init, supports mysql too
+#database: 2
+#spring:
+#  datasource:
+#    schema: classpath*:db/${database}/schema.sql
+#    data: classpath*:db/${database}/data.sql
 
-  spring:
-    neo4j:
-      uri: neo4j://localhost:7687
-      authentication:
-        username: neo4j
-        password: graph
+  # JPA
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#    open-in-view: false
 
+  # Maximum time static resources should be cached
+#  resources:
+#    cache:
+#      cachecontrol:
+#        max-age: 12h
+
+  # Logging
 logging:
   level:
     org:
-      springframework:
-        data:
-          neo4j: DEBUG
+      springframework: INFO
 
-  spring:
-    data:
-      neo4j:
-        database: neo4j
+  # Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

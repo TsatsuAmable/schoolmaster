@@ -1,29 +1,23 @@
 package com.locode.apps.schoolmaster.domains;
 
-import lombok.AccessLevel;
+import com.locode.apps.schoolmaster.model.BaseEntity;
+import com.locode.apps.schoolmaster.student.Student;
 import lombok.Data;
-import lombok.experimental.FieldDefaults;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Relationship;
 
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import static org.springframework.data.neo4j.core.schema.Relationship.Direction.OUTGOING;
-
-@Node
 @Data
-@FieldDefaults(level= AccessLevel.PRIVATE, makeFinal = true)
-public class Grade {
+@Entity
+@Table(name = "grades")
+public class Grade extends BaseEntity {
 
-    @Id
-    int id;
-    char grade;
+    String grade;
 
-    @Relationship(type = "AWARDS_GRADE", direction = OUTGOING)
-    private Set<Class>classGrades  = new HashSet<>();
-    @Relationship(type = "GRADE_FOR", direction = OUTGOING)
-    private Set<Student> studentGrades = new HashSet<>();
-
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<Class>classGrades  = new ArrayList<>();
+//
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<Student> studentGrades = new ArrayList<>();
 }
