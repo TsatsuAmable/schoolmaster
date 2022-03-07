@@ -1,8 +1,8 @@
-package com.locode.apps.schoolmaster.school;
+package com.locode.apps.schoolmaster.teacher;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SchoolRepository extends JpaRepository<School, Integer> {
+public interface TeacherRepository extends JpaRepository<Teacher, Integer> {
 }

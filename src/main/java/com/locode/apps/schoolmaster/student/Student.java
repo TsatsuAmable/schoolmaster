@@ -1,15 +1,10 @@
 package com.locode.apps.schoolmaster.student;
 
-import com.locode.apps.schoolmaster.domains.Bill;
-import com.locode.apps.schoolmaster.domains.Class;
-import com.locode.apps.schoolmaster.domains.Grade;
-import com.locode.apps.schoolmaster.model.Person;
+import com.locode.apps.schoolmaster.basemodel.Person;
+import com.locode.apps.schoolmaster.teacher.Teacher;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotEmpty;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,13 +24,6 @@ public class Student extends Person {
     Date registrationDate;
     String schoolYear;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<Class> classStudents  = new ArrayList<>();
-//
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<Grade> studentGrades = new ArrayList<>();
-//
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<Bill>studentBills  = new ArrayList<>();
-
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Teacher> teachers;
 }

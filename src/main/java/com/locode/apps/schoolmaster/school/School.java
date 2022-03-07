@@ -1,11 +1,11 @@
 package com.locode.apps.schoolmaster.school;
 
-import com.locode.apps.schoolmaster.model.BaseEntity;
+import com.locode.apps.schoolmaster.basemodel.BaseEntity;
+import com.locode.apps.schoolmaster.student.Student;
 import com.locode.apps.schoolmaster.teacher.Teacher;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,9 +20,9 @@ public class School extends BaseEntity {
     String about;
     String email;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<Teacher> teachingStaff  = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Teacher> teachingStaff;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<Department> departments = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Student> students;
 }

@@ -1,8 +1,6 @@
-# School Master 
+# School Master - Apple Seed
 
+This branch will have a very basic initial working application that 
+strips down much of where I have been going until now.
 
-###I'm shelving the graph component of this project for now. Back to 
-a conventional relational model for now.
-
-*Graph DB based on graph model from the following link:
-https://drive.google.com/file/d/1QU7NW2xAhRHnWwIjDcTgYqyR79OiNuww/view?usp=sharing*
+- the goal is to get something complete done quickly to maintain momentum and interest.
