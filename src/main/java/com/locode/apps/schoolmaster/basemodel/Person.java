@@ -1,12 +1,13 @@
+/**
+                Author: Tsatsu Amable
+                (C)2022
+                */
 package com.locode.apps.schoolmaster.basemodel;
-
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-
+import lombok.Getter;
+import lombok.Setter;
 
 @MappedSuperclass
 @Getter

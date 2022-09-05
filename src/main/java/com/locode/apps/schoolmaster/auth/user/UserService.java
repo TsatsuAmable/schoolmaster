@@ -1,3 +1,7 @@
+/**
+                Author: Tsatsu Amable
+                (C)2022
+                */
 package com.locode.apps.schoolmaster.auth.user;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,12 +23,11 @@ public class UserService implements UserDetailsService, UserStatusManager {
         return null;
     }
 
-
-//    @Transactional(rollbackFor = Exception.class)
-//    public String saveDto(UserDto userDto) {
-//
-//        //TODO Connect Bcrypt to this later
-//        userDto.setPassword(userDto.getPassword());
-//        return userRepository.save(new User(userDto));
-//    }
+    //    @Transactional(rollbackFor = Exception.class)
+    //    public String saveDto(UserDto userDto) {
+    //
+    //        //TODO Connect Bcrypt to this later
+    //        userDto.setPassword(userDto.getPassword());
+    //        return userRepository.save(new User(userDto));
+    //    }
 }

@@ -1,8 +1,16 @@
+/**
+                Author: Tsatsu Amable
+                (C)2022
+                */
 package com.locode.apps.schoolmaster.auth;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.locode.apps.schoolmaster.auth.user.User;
-import com.sun.istack.NotNull;
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.List;
+import javax.annotation.Nonnull;
+import javax.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,25 +18,21 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.List;
-
 @Entity
-@Table(name = "roles", indexes = {
-        @Index(name = "index_roles_on_code", columnList = "code"),
-        @Index(name = "index_roles_on_name", columnList = "name")
-})
+@Table(
+        name = "roles",
+        indexes = {
+            @Index(name = "index_roles_on_code", columnList = "code"),
+            @Index(name = "index_roles_on_name", columnList = "name")
+        })
 @Setter
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Role implements Serializable {
 
-    @Id
-    private int code;
+    @Id private int code;
 
-    @NotNull
+    @Nonnull
     @Column(name = "name", unique = true)
     private String name;
 
@@ -43,7 +47,7 @@ public class Role implements Serializable {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-    @NotNull
+    @Nonnull
     @Column(name = "created_by")
     private String createdBy;
 
@@ -53,14 +57,24 @@ public class Role implements Serializable {
 
     @Override
     public String toString() {
-        return "Role{" +
-                "code=" + code +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                ", createdBy='" + createdBy + '\'' +
-                ", users=" + users +
-                '}';
+        return "Role{"
+                + "code="
+                + code
+                + ", name='"
+                + name
+                + '\''
+                + ", description='"
+                + description
+                + '\''
+                + ", createdAt="
+                + createdAt
+                + ", updatedAt="
+                + updatedAt
+                + ", createdBy='"
+                + createdBy
+                + '\''
+                + ", users="
+                + users
+                + '}';
     }
 }

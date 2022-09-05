@@ -1,16 +1,19 @@
+/**
+                Author: Tsatsu Amable
+                (C)2022
+                */
 package com.locode.apps.schoolmaster.auth.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.locode.apps.schoolmaster.auth.Role;
 import com.locode.apps.schoolmaster.basemodel.BaseEntity;
+import java.io.Serializable;
+import java.util.Set;
+import javax.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -36,10 +39,12 @@ public class User extends BaseEntity implements Serializable {
     String email;
 
     @JsonIgnore
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "users_roles",
+    @ManyToMany(
+            cascade = {CascadeType.ALL},
+            fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "role_code")})
     Set<Role> roles;
-
 }

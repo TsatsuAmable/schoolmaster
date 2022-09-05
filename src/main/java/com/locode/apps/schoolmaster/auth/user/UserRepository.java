@@ -1,11 +1,16 @@
+/**
+                Author: Tsatsu Amable
+                (C)2022
+                */
 package com.locode.apps.schoolmaster.auth.user;
 
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import java.util.Optional;
-
-public interface UserRepository  extends PagingAndSortingRepository<User, String>, JpaSpecificationExecutor<User> {
+public interface UserRepository
+        extends PagingAndSortingRepository<User, String>, JpaSpecificationExecutor<User> {
     Optional<User> findByUsername(String username);
+
     Optional<User> findByEmail(String email);
 }

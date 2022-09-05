@@ -1,3 +1,7 @@
+/**
+                Author: Tsatsu Amable
+                (C)2022
+                */
 package com.locode.apps.schoolmaster.school;
 
 import lombok.extern.slf4j.Slf4j;

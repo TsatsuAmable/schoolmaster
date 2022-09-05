@@ -1,12 +1,15 @@
+/**
+                Author: Tsatsu Amable
+                (C)2022
+                */
 package com.locode.apps.schoolmaster.school;
 
 import com.locode.apps.schoolmaster.basemodel.BaseEntity;
 import com.locode.apps.schoolmaster.student.Student;
 import com.locode.apps.schoolmaster.teacher.Teacher;
-import lombok.Data;
-
-import javax.persistence.*;
 import java.util.List;
+import javax.persistence.*;
+import lombok.Data;
 
 @Data
 @Entity

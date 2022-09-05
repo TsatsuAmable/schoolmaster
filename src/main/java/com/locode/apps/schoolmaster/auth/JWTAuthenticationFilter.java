@@ -1,3 +1,7 @@
+/**
+                Author: Tsatsu Amable
+                (C)2022
+                */
 package com.locode.apps.schoolmaster.auth;
 
 import org.springframework.security.authentication.AuthenticationManager;
